@@ -1,12 +1,12 @@
 "use strict";
-const n = 10;
+const n = 70;
 const randomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 //random numbers generation
 let randomNumbers = [...Array(n)];
 randomNumbers.forEach((element, index, array) => {
-    array[index] = randomInt(13, 23);
+    array[index] = randomInt(10, 99);
 });
 //Range
 let range;

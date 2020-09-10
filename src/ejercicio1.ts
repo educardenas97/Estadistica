@@ -1,4 +1,4 @@
-const n: number = 10;
+const n: number = 70;
 const randomInt = (min:number, max:number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -6,7 +6,7 @@ const randomInt = (min:number, max:number) => {
 //random numbers generation
 let randomNumbers: number[] = [...Array(n)];
 randomNumbers.forEach( (element,index,array) => {
-    array[index] = randomInt(13,23);
+    array[index] = randomInt(10,99);
 });
 
 //Range
