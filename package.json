@@ -1,0 +1,16 @@
+{
+  "name": "estadistica",
+  "version": "1.0.0",
+  "description": "Beta",
+  "main": "./src/ejercicio1.ts",
+  "dependencies": {},
+  "devDependencies": {
+    "tsc-watch": "^4.2.9",
+    "typescript": "^4.0.2"
+  },
+  "scripts": {
+    "dev": "tsc-watch --onSuccess \"node dist/ejercicio1.js\""
+  },
+  "author": "Yo merengues",
+  "license": "MIT"
+}
