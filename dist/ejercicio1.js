@@ -6,7 +6,7 @@ const randomInt = (min, max) => {
 //random numbers generation
 let randomNumbers = [...Array(n)];
 randomNumbers.forEach((element, index, array) => {
-    array[index] = randomInt(10, 99);
+    array[index] = randomInt(13, 23);
 });
 //Range
 let range;
@@ -69,8 +69,9 @@ const findMedian = () => {
 const findTrend = () => {
     let trend, pos;
     pos = absFrecuency.indexOf(Math.max(...absFrecuency));
-    trend = classOfTable[pos] + (((absFrecuency[pos] - absFrecuency[pos - 1]) /
-        ((absFrecuency[pos] - absFrecuency[pos - 1]) + (absFrecuency[pos] - absFrecuency[pos + 1]))) * a);
+    let num = absFrecuency[pos] - absFrecuency[pos - 1], num2 = absFrecuency[pos] - absFrecuency[pos + 1];
+    let den = (num) / (num + num2);
+    trend = classOfTable[pos] + (den * a);
     return trend;
 };
 //Numbers greater than the median + 5
