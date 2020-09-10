@@ -89,11 +89,10 @@ const numGreaterMedian = (): number => {
     const median: number = findMedian();
     let countNumber: number = 0;
     randomNumbers.forEach( (element) => {
-        if(element > median+5 ) countNumber++
+        if(element >= median+5 ) countNumber++
     });
     return countNumber/randomNumbers.length;
 }
-
 
 //View Table
 const viewTable = () => {
@@ -110,7 +109,6 @@ const main = () => {
     console.log(`Mediana: ${findMedian().toFixed(2)}`);
     console.log(`Moda: ${findTrend().toFixed(2)}`);
     console.log(`Numeros mayores a la mediana + 5: ${(numGreaterMedian() * 100).toFixed(2)}% `);
-    
 }
 
 main();

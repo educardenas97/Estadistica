@@ -75,7 +75,7 @@ const numGreaterMedian = () => {
     const median = findMedian();
     let countNumber = 0;
     randomNumbers.forEach((element) => {
-        if (element > median + 5)
+        if (element >= median + 5)
             countNumber++;
     });
     return countNumber / randomNumbers.length;
