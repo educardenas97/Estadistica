@@ -12,8 +12,11 @@ randomNumbers.forEach((element, index, array) => {
 let range;
 range = Math.max(...randomNumbers) - Math.min(...randomNumbers);
 //Sturges rule
+const getBaseLog = (x, y) => {
+    return Math.log(y) / Math.log(x);
+};
 let k;
-k = Math.round(1 + 3.322 * Math.log(randomNumbers.length));
+k = Math.trunc(1 + (3.322 * getBaseLog(10, randomNumbers.length)));
 //Amplitude
 let a = Math.round(range / k);
 //Class
@@ -96,3 +99,4 @@ const main = () => {
     console.log(`Numeros mayores a la mediana + 5: ${(numGreaterMedian() * 100).toFixed(2)}% `);
 };
 main();
+/* @educardenas97 */ 

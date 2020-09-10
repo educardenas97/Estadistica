@@ -14,8 +14,12 @@ let range: number;
 range = Math.max(...randomNumbers) - Math.min(...randomNumbers);
 
 //Sturges rule
+const getBaseLog = (x: number, y: number):number => {
+    return Math.log(y) / Math.log(x);
+}
+
 let k: number;
-k = Math.round( 1+3.322 * Math.log(randomNumbers.length));
+k = Math.trunc(1 + (3.322 * getBaseLog(10, randomNumbers.length)));
 
 //Amplitude
 let a: number = Math.round( range/k ) ;
@@ -112,3 +116,5 @@ const main = () => {
 }
 
 main();
+
+/* @educardenas97 */
