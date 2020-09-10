@@ -1,4 +1,4 @@
-const n: number = 70;
+const n: number = 77;
 const randomInt = (min:number, max:number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -97,16 +97,20 @@ const numGreaterMedian = (): number => {
 
 //View Table
 const viewTable = () => {
-    console.log('Table:');
+    console.log('\nTable:');
     for (let i = 0; i < k; i++) {
         console.log(`| ${classOfTable[i]} - ${classOfTable[i] + a} | ${classMark[i]} | ${absFrecuency[i]} | ${relFrecuency[i].toFixed(3)} | ${accAbsoluteFrecuency[i]}`);
     }
 }
 
 const main = () => {
+    console.log("Cantidad de elementos: " + randomNumbers.length);
+    console.log("\nElementos: ");
+    
     console.log(randomNumbers);
+    console.log(`\nMin: ${Math.min(...randomNumbers)} Max: ${Math.max(...randomNumbers)}`);
     viewTable();
-    console.log(`Media: ${findMean().toFixed(2)}`);
+    console.log(`\nMedia: ${findMean().toFixed(2)}`);
     console.log(`Mediana: ${findMedian().toFixed(2)}`);
     console.log(`Moda: ${findTrend().toFixed(2)}`);
     console.log(`Numeros mayores a la mediana + 5: ${(numGreaterMedian() * 100).toFixed(2)}% `);
