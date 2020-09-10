@@ -1,5 +1,5 @@
 "use strict";
-const n = 70;
+const n = 10;
 const randomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
@@ -56,15 +56,11 @@ const findMean = () => {
 };
 //Median
 const findMedian = () => {
-    const point = (randomNumbers.length + 1) / 2;
-    let position = 0, median;
-    classOfTable.forEach((element, index) => {
-        if (point >= element && point < (element + a))
-            position = index;
-    });
-    median = classOfTable[position] + ((((randomNumbers.length) - accAbsoluteFrecuency[position - 1])
-        / accAbsoluteFrecuency[position]) * a);
-    return median;
+    let numbers = randomNumbers.slice();
+    numbers.sort();
+    return (numbers.length % 2) == 0 ?
+        numbers[numbers.length / 2] :
+        (numbers[Math.floor(numbers.length / 2)] + numbers[Math.ceil(numbers.length / 2)]) / 2;
 };
 //Trend
 const findTrend = () => {

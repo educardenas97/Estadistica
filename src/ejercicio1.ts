@@ -1,4 +1,4 @@
-const n: number = 70;
+const n: number = 10;
 const randomInt = (min:number, max:number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -62,18 +62,12 @@ const findMean = (): number =>{
 
 //Median
 const findMedian = (): number => {
-    const point = (randomNumbers.length + 1)/2;
-    let position: number = 0, median: number;
+    let numbers: number[] = randomNumbers.slice();   
+    numbers.sort();
 
-    classOfTable.forEach( (element,index) => {
-        if (point >= element && point < (element+a)) position = index;
-    })
-
-    median = classOfTable[position] + ((
-        ( (randomNumbers.length) - accAbsoluteFrecuency[position-1] )
-         / accAbsoluteFrecuency[position]) * a);
-
-    return median;
+    return (numbers.length%2) == 0 ?
+        numbers[numbers.length / 2] : 
+        (numbers[Math.floor(numbers.length / 2)] + numbers[Math.ceil(numbers.length / 2)]) / 2;
 };
 
 //Trend
