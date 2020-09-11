@@ -1,10 +1,12 @@
 "use strict";
 const n = 77;
-const randomInt = (min, max) => {
+/*
+const randomInt = (min:number, max:number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+}
+
 //random numbers generation
-/*let randomNumbers: number[] = [...Array(n)];
+let randomNumbers: number[] = [...Array(n)];
 randomNumbers.forEach( (element,index,array) => {
     array[index] = randomInt(10,99);
 });*/
@@ -83,7 +85,6 @@ const numGreaterMedian = () => {
         if (element >= median + 5)
             countNumber++;
     });
-    console.log(countNumber);
     return countNumber / randomNumbers.length;
 };
 //Sum
