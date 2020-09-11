@@ -4,10 +4,11 @@ const randomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 //random numbers generation
-let randomNumbers = [...Array(n)];
-randomNumbers.forEach((element, index, array) => {
-    array[index] = randomInt(10, 99);
-});
+/*let randomNumbers: number[] = [...Array(n)];
+randomNumbers.forEach( (element,index,array) => {
+    array[index] = randomInt(10,99);
+});*/
+let randomNumbers = [95, 76, 96, 57, 59, 59, 53, 64, 69, 18, 17, 76, 73, 39, 23, 17, 86, 81, 87, 87, 25, 59, 78, 97, 10, 88, 22, 27, 54, 71, 89, 69, 33, 36, 77, 65, 49, 38, 71, 29, 34, 18, 10, 29, 68, 29, 87, 89, 47, 93, 74, 73, 82, 62, 24, 18, 42, 65, 77, 40, 46, 13, 54, 23, 68, 70, 86, 59, 99, 11, 13, 12, 72, 35, 53, 51, 94];
 //Range
 let range;
 range = Math.max(...randomNumbers) - Math.min(...randomNumbers);
@@ -82,7 +83,32 @@ const numGreaterMedian = () => {
         if (element >= median + 5)
             countNumber++;
     });
+    console.log(countNumber);
     return countNumber / randomNumbers.length;
+};
+//Sum
+const sum = () => {
+    let sum = 0;
+    randomNumbers.forEach((element) => {
+        sum += element;
+    });
+    return sum;
+};
+//Varianza
+const varianza = () => {
+    let suma = 0, promedio = sum() / randomNumbers.length;
+    randomNumbers.forEach((element) => {
+        suma += Math.pow((element - promedio), 2);
+    });
+    return suma / randomNumbers.length;
+};
+//Esperanza
+const esperanza = () => {
+    let esperanza = 0;
+    for (let i = 0; i < k; i++) {
+        esperanza += absFrecuency[i] * relFrecuency[i];
+    }
+    return esperanza;
 };
 //View Table
 const viewTable = () => {
@@ -95,12 +121,15 @@ const main = () => {
     console.log("Cantidad de elementos: " + randomNumbers.length);
     console.log("\nElementos: ");
     console.log(randomNumbers);
-    console.log(`\nMin: ${Math.min(...randomNumbers)} Max: ${Math.max(...randomNumbers)}`);
+    console.log(`\nMin: ${Math.min(...randomNumbers)} Max: ${Math.max(...randomNumbers)} Sum: ${sum()}`);
     viewTable();
     console.log(`\nMedia: ${findMean().toFixed(2)}`);
     console.log(`Mediana: ${findMedian().toFixed(2)}`);
     console.log(`Moda: ${findTrend().toFixed(2)}`);
     console.log(`Numeros mayores a la mediana + 5: ${(numGreaterMedian() * 100).toFixed(2)}% `);
+    console.log(`Varianza: ${varianza().toFixed(2)}`);
+    console.log(`Desviación tipica: ${Math.sqrt(varianza()).toFixed(2)}`);
+    console.log(`Esperanza: ${esperanza().toFixed(2)}`);
 };
 main();
 /* @educardenas97 */ 
