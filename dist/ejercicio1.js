@@ -1,16 +1,13 @@
 "use strict";
 const n = 77;
-/*
-const randomInt = (min:number, max:number) => {
+const randomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
+};
 //random numbers generation
-let randomNumbers: number[] = [...Array(n)];
-randomNumbers.forEach( (element,index,array) => {
-    array[index] = randomInt(10,99);
-});*/
-let randomNumbers = [95, 76, 96, 57, 59, 59, 53, 64, 69, 18, 17, 76, 73, 39, 23, 17, 86, 81, 87, 87, 25, 59, 78, 97, 10, 88, 22, 27, 54, 71, 89, 69, 33, 36, 77, 65, 49, 38, 71, 29, 34, 18, 10, 29, 68, 29, 87, 89, 47, 93, 74, 73, 82, 62, 24, 18, 42, 65, 77, 40, 46, 13, 54, 23, 68, 70, 86, 59, 99, 11, 13, 12, 72, 35, 53, 51, 94];
+let randomNumbers = [...Array(n)];
+randomNumbers.forEach((element, index, array) => {
+    array[index] = randomInt(10, 99);
+});
 //Range
 let range;
 range = Math.max(...randomNumbers) - Math.min(...randomNumbers);
@@ -112,18 +109,30 @@ const esperanza = () => {
     return esperanza;
 };
 //View Table
-const viewTable = () => {
+const createTable = () => {
+    let table = [...Array([...Array(k)])];
     console.log('\nTable:');
-    for (let i = 0; i < k; i++) {
-        console.log(`| ${classOfTable[i]} - ${classOfTable[i] + a} | ${classMark[i]} | ${absFrecuency[i]} | ${relFrecuency[i].toFixed(3)} | ${accAbsoluteFrecuency[i]}`);
+    table[0] = [
+        `Intervalo`,
+        `Marca de clase`,
+        `Frecuencia absoluta`,
+        `Frecuencia relativa`,
+        `Frecuencia acumulada`
+    ];
+    for (let i = 1; i <= k; i++) {
+        table[i] = [
+            ` ${classOfTable[i]} - ${classOfTable[i] + a} `,
+            classMark[i],
+            absFrecuency[i],
+            relFrecuency[i],
+            accAbsoluteFrecuency[i]
+        ];
     }
+    return table;
 };
 const main = () => {
     console.log("Cantidad de elementos: " + randomNumbers.length);
-    console.log("\nElementos: ");
-    console.log(randomNumbers);
     console.log(`\nMin: ${Math.min(...randomNumbers)} Max: ${Math.max(...randomNumbers)} Sum: ${sum()}`);
-    viewTable();
     console.log(`\nMedia: ${findMean().toFixed(2)}`);
     console.log(`Mediana: ${findMedian().toFixed(2)}`);
     console.log(`Moda: ${findTrend().toFixed(2)}`);
